@@ -1,6 +1,7 @@
 require('dotenv').config();
 const axios = require('axios');
 const cron = require('node-cron');
+const colors = require('colors');
 
 const place = "52.03333,5.65833"
 const api_url = `http://api.weatherapi.com/v1/current.json?key=${process.env.apikey}`
@@ -27,8 +28,8 @@ const send_message = async () => {
 
 }
 
-cron.schedule('0 0 7 * * *', () => {
-    console.log('task')
+cron.schedule('0 0 10 * *', () => {
+    console.log(colors.inverse('Schedule is started'));
     // send_message()
 });
 
